@@ -1,1 +1,1 @@
-# M06_UF1_A06
+# Actividad 01 - Gestió de fitxers i contingut: text i binari
