@@ -32,15 +32,21 @@ public class Client {
     public static void main (String[] args) {
         System.out.println("Welcome to my store");
         System.out.println("=====================\n");
-        System.out.println("What would you want to do? \n new charge [s] \n show a charge [c] \n exit [x]");
+        System.out.println("What would you want to do? \n - New charge \t [s] \n - Show a charge [c] \n - Exit  \t [x]");
         String action = Entrada.readLine();
         if (action.equals("s")) {
             System.out.println("Please complete the following info\n");
-        System.out.print("Name: ");
-        name = Entrada.readLine();
-        System.out.print("Phone: ");
-        phone = Integer.parseInt(Entrada.readLine());
-        System.out.print("Date: " + current);
+            System.out.print("Name: ");
+            name = Entrada.readLine();
+            System.out.print("Phone: ");
+            phone = Integer.parseInt(Entrada.readLine());
+            System.out.print("Date: " + current);
+        }
+        if (action.equals("c")) {
+
+        }
+        if (action.equals("x")) {
+            System.out.println("Bye");
         }
         
         
