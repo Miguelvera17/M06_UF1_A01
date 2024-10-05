@@ -1,10 +1,10 @@
-import java.util.Date;
-
 public class Client {
-    public static String name;
-    public static int phone;
-    
-    public static Date current = new Date();
+
+    public String name;
+    public String phone;
+    public String date;
+
+    public Client() {}
     
     public String getName() {
         return name;
@@ -14,41 +14,22 @@ public class Client {
         this.name = name;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
-
-
-    public Client(String name, int phone) {
-        this.name = name;
-        this.phone = phone;
+    public String getDate() {
+        return date;
     }
 
-    public static void main (String[] args) {
-        System.out.println("Welcome to my store");
-        System.out.println("=====================\n");
-        System.out.println("What would you want to do? \n - New charge \t [s] \n - Show a charge [c] \n - Exit  \t [x]");
-        String action = Entrada.readLine();
-        if (action.equals("s")) {
-            System.out.println("Please complete the following info\n");
-            System.out.print("Name: ");
-            name = Entrada.readLine();
-            System.out.print("Phone: ");
-            phone = Integer.parseInt(Entrada.readLine());
-            System.out.print("Date: " + current);
-        }
-        if (action.equals("c")) {
-
-        }
-        if (action.equals("x")) {
-            System.out.println("Bye");
-        }
-        
-        
+    public void setDate(String date) {
+        this.date = date;
     }
+
+    
+
 }
