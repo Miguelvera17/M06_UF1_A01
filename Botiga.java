@@ -1,3 +1,4 @@
+import java.io.*;
 
 
 public class Botiga {
@@ -6,8 +7,10 @@ public class Botiga {
     public static Article article = new Article();
     public static int num = 1;
     public static String loop = "y";
+    static String f1 = "C:\\Users\\migue\\Documents\\Media TIC\\M06\\M06_UF1_A01\\file.txt" ;
+    private static Article[] articleArray = new Article[100];
 
-    public static void main (String[] args) {
+    public static void main (String[] args) throws IOException {
         System.out.print("Welcome to my store!!\n" +
                             "=====================\n" + 
                             "\n" +
@@ -31,19 +34,19 @@ public class Botiga {
             String date = Entrada.readLine();
             client.setDate(date);
             System.out.println("==================================");
+            System.out.println("\nIndicate your order");
             while (loop.equals("y") ) {
-                System.out.println("\nIndicate your order\n" +
-                                "\n" + "=========== Article " + num + " ==========");
+                System.out.println("\n=========== Article " + num + " ==========");
                 System.out.print("Article/es: ");
                 String articleName = Entrada.readLine();
-                article.setName(articleName);
                 System.out.print("Quantity:   ");
-                float quantity = Float.parseFloat(Entrada.readLine());
-                article.setQuantity(quantity);
+                String quantity = Entrada.readLine();
                 System.out.print("Unit:\t    ");
                 String unit = Entrada.readLine();
-                article.setUnit(unit);
                 System.out.println("================================");
+
+                Article art = new Article(articleName,quantity,unit);
+                articleArray[num-1] = art;
                 System.out.println("\nWould you like to add more articles? [y] [n]\n" );
                 loop = Entrada.readLine();
                 num++;
@@ -53,16 +56,20 @@ public class Botiga {
                                 "b) Binary   [b]\n" +
                                 "c) CSV \t    [c] \n" +
                                 "\nSelect your option: ");
-            String docu = Entrada.readLine();
-            if (docu.equals("a")) {
+            
+            String opt = Entrada.readLine();
 
+            if (opt.equals("a")) {
+                writeStream(Article.createAlbaran(articleArray, num));
+                System.out.println("Printed document");
             }
-            if (docu.equals("b")) {
-
+            if (opt.equals("b")) {
+                System.out.println("Document created successfully");
             }
-            if (docu.equals("c")) {
-
+            if (opt.equals("c")) {
+                System.out.println("Document created successfully");
             }
+            
         }    
         if (action.equals("s")) {
 
@@ -71,4 +78,42 @@ public class Botiga {
             System.out.println("\nBye\n");
         }
     }
+    public static void writeStream(String document) {
+		try {
+			FileOutputStream file = new FileOutputStream(f1);
+			DataOutputStream str1 = new DataOutputStream(file); 
+			str1.writeBytes(document);
+			str1.close();
+			file.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("EL FITXER NO EXISTEIX");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+    private static void readStream() {
+		try {
+			FileInputStream fileStr1_inp = new FileInputStream(f1);
+			
+			DataInputStream str2 = new DataInputStream(fileStr1_inp);
+			
+            int i = 0;
+
+			while (str2.available()>0) {
+				int k = str2.readInt();
+				System.out.println("el nombre contingut a la posició ["+ i + "] de l'array és: " +k);
+                i++;
+			}
+
+			str2.close();
+
+			fileStr1_inp.close();
+			
+		} catch (FileNotFoundException e) {
+			System.out.println("EL FITXER NO EXISTEIX");
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+	}
 }

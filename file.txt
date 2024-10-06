@@ -1,0 +1,6 @@
+Nom del client: adfsdfsdf
+Telefon del client: asdfsdfasd
+Data de l'encarrec: asdfsdf
+Quantitat   	Unitats	    Article
+====================================
+adsfsdfsdf
