@@ -1,12 +1,24 @@
-import java.util.*;
+import java.util.ArrayList;
 
 public class Article {
 
-    static String name;
-    static String quantity;
-    static String unit;
-    ArrayList<String> list = new ArrayList<>();
+    private String name;
+    private String quantity;
+    private String unit;
+    private static String mensaje = ("Client's name:  " + Client.getName() + "\n" +
+            "Client's phone: " + Client.getPhone() + "\n" +
+            "Order's date:   " + Client.getDate() + "\n" +
+            "Quantity       Units     Article\n"  +
+            "============= ========== ===========");
     
+    public Article(){}
+    
+    public Article(String name, String quantity, String unit) {
+        this.name = name;
+        this.quantity = quantity;
+        this.unit = unit;
+    }
+
     public String getName() {
         return name;
     }
@@ -31,37 +43,34 @@ public class Article {
         this.unit = unit;
     }
 
-    public Article(String name, String quantity, String unit) {
-        this.name = name;
-        this.quantity = quantity;
-        this.unit = unit;
-    }
-
-    public Article(){}
-
-    public static String createAlbaran(Article[] array, int num) {
-        String mensaje = ("Nom del client: " + Client.getName() + "\n" +
-            "Telefon del client: " + Client.getPhone() + "\n" +
-            "Data de l'encarrec: " + Client.getDate() + "\n" +
-            "Quantitat   	Unitats	    Article\n" +
-            "====================================\n");
-    
+    public static String createAlbaran(ArrayList<Article> articles) {
+        int count = 0;
         String a = "";
-        for (int i = 0; i < num - 1; i++) {
-            // Verificar si array[i] es nulo antes de acceder a sus métodos
-            if (array[i] != null) {
-                a = a + array[i].getQuantity() +
-                array[i].getUnit() +
-                array[i].getName() +"\n";
-            }
+        while (count < articles.size()) {
+                a = a + articles.get(count);
+                count++;
         }
         return mensaje + a;
     }
 
-    public String toString() {
-        return String.format("\n    Vi: %s\n    Preu: %d\n    Estoc: %d\n" + //
-                        "", this.name, this.quantity, this.unit);
+    public static String createCSV(ArrayList<Article> articles) {
+        int count = 0;
+        String a = "";
+        while (count < articles.size()) {
+            if (count == 0) {
+                a = a + articles.get(count).getName() + ";" + articles.get(count).getQuantity() + ";" + articles.get(count).getUnit() ;
+            } else {
+                a = a + ";" + articles.get(count).getName() + ";" + articles.get(count).getQuantity() + ";" + articles.get(count).getUnit();
+            }
+            
+            count++;
     }
+        return a;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("\n%-10s %-10s %-15s", this.quantity, this.unit, this.name);}
 
     public String toCSV() {
         return "System.";
