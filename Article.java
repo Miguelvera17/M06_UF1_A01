@@ -41,15 +41,21 @@ public class Article {
 
     public static String createAlbaran(Article[] array, int num) {
         String mensaje = ("Nom del client: " + Client.getName() + "\n" +
-        "Telefon del client: " + Client.getPhone() + "\n" +
-        "Data de l'encarrec: " + Client.getDate() + "\n" +
-        "Quantitat   	Unitats	    Article\n" +
-        "====================================\n");
-        String s = "";
-        for (int i = 0; i < num; i++) {
-            s = s + array[i].getName() + array[i].getQuantity() + array[i].getUnit() + "\n";
+            "Telefon del client: " + Client.getPhone() + "\n" +
+            "Data de l'encarrec: " + Client.getDate() + "\n" +
+            "Quantitat   	Unitats	    Article\n" +
+            "====================================\n");
+    
+        String a = "";
+        for (int i = 0; i < num - 1; i++) {
+            // Verificar si array[i] es nulo antes de acceder a sus métodos
+            if (array[i] != null) {
+                a = a + array[i].getQuantity() +
+                array[i].getUnit() +
+                array[i].getName() +"\n";
+            }
         }
-        return mensaje + s;
+        return mensaje + a;
     }
 
     public String toString() {

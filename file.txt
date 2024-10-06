@@ -1,6 +1,7 @@
-Nom del client: adfsdfsdf
-Telefon del client: asdfsdfasd
-Data de l'encarrec: asdfsdf
+Nom del client: afsdf
+Telefon del client: asdfsdf
+Data de l'encarrec: dsafsdf
 Quantitat   	Unitats	    Article
 ====================================
-adsfsdfsdf
+123123adsfsadfsdfdsafsfs
+123123adsfsadfsdfdsafsfs
