@@ -8,7 +8,7 @@ public class Botiga {
     public static Article article = new Article();
     public static int num = 1;
     public static String loop = "y";
-    static String f1 = "C:\\Users\\migue\\Documents\\Media TIC\\M06\\M06_UF1_A01\\file.txt" ;
+    static String f1 = "C:\\Users\\migue\\Desktop\\DAM2\\M06\\M06_UF1_A01\\file.txt" ;
 
     public static void main (String[] args) throws IOException {
         ArrayList<Article> articles = new ArrayList<>();
@@ -70,11 +70,12 @@ public class Botiga {
                     break;
                 }
                 if (opt.equals("b")) {
-                    write(Article.createCSV(articles));
+                    
                     System.out.println("Document created successfully");
                     break;
                 }
                 if (opt.equals("c")) {
+                    write(Article.createCSV(articles));
                     System.out.println("Document created successfully");
                     break;
                 }
