@@ -1,12 +1,19 @@
 public class Client {
 
-    public static String name;
-    public static String phone;
-    public static String date;
+    public String name;
+    public String phone;
+    public String date;
+    public Article article;
 
     public Client() {}
+
+    public Client(String name, String phone, String date) {
+        this.name = name;
+        this.phone = phone;
+        this.date = date;
+    }
     
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
@@ -14,7 +21,7 @@ public class Client {
         this.name = name;
     }
 
-    public static String getPhone() {
+    public String getPhone() {
         return phone;
     }
 
@@ -22,7 +29,7 @@ public class Client {
         this.phone = phone;
     }
 
-    public static String getDate() {
+    public String getDate() {
         return date;
     }
 

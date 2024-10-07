@@ -1,14 +1,13 @@
 import java.io.*;
 import java.util.ArrayList;
 
-
 public class Botiga {
     
-    public static Client client = new Client();
-    public static Article article = new Article();
+    public static Client client;
+    public static Article article;
     public static int num = 1;
     public static String loop = "y";
-    static String f1 = "C:\\Users\\migue\\Desktop\\DAM2\\M06\\M06_UF1_A01\\file.txt" ;
+    
 
     public static void main (String[] args) throws IOException {
         ArrayList<Article> articles = new ArrayList<>();
@@ -30,14 +29,12 @@ public class Botiga {
                                 "======= Client information =======\n" +
                                 "Name:\t");
                 String name = Entrada.readLine();
-                client.setName(name);
                 System.out.print("Phone:\t");
                 String phone = Entrada.readLine();
-                client.setPhone(phone);
                 System.out.print("Date:\t");
                 String date = Entrada.readLine();
-                client.setDate(date);
                 System.out.println("==================================");
+                client = new Client(name,phone,date);
                 System.out.println("\nIndicate your order");
                 while (loop.equals("y") ) {
                     System.out.println("\n=========== Article " + num + " ==========");
@@ -48,9 +45,8 @@ public class Botiga {
                     System.out.print("Unit:\t    ");
                     String unit = Entrada.readLine();
                     System.out.println("================================");
-    
-                    Article article = new Article(articleName,quantity,unit);
-                    articles.add(article);
+                    client.article = new Article(articleName,quantity,unit);
+                    articles.add(client.article);
                     System.out.println("\nWould you like to add more articles? [y] [n]\n" );
                     loop = Entrada.readLine();
                     num++;
@@ -65,7 +61,7 @@ public class Botiga {
                 String opt = Entrada.readLine();
                 
                 if (opt.equals("a")) {
-                    write(Article.createAlbaran(articles));
+                    Fitxer.createAlbaran(articles);
                     System.out.println("\nPrinted document");
                     break;
                 }
@@ -75,15 +71,14 @@ public class Botiga {
                     break;
                 }
                 if (opt.equals("c")) {
-                    write(Article.createCSV(articles));
+                    Fitxer.createCSV(articles);
                     System.out.println("Document created successfully");
                     break;
                 }
-                
             }
             //Option to show a previus order   
             if (action.equals("s")) {
-                read();
+                //Fitxer.read();
             }
             // If the option is not correct will ask again to choose the correct
             else {
@@ -101,40 +96,5 @@ public class Botiga {
             }
         }
         System.out.println("\nBye");
-    }
-
-    // Method void to write in file f1
-    public static void write(String document) {
-		try {
-			FileOutputStream file = new FileOutputStream(f1);
-			DataOutputStream str1 = new DataOutputStream(file); 
-			str1.writeUTF(document);
-			str1.close();
-			file.close();
-		} catch (FileNotFoundException e) {
-			System.out.println("The document not exits");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-    // Method void to read the file f1
-    public static void read() {
-		try {
-            FileReader fileReader = new FileReader(f1);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                System.out.println(line);
-            }
-    
-            bufferedReader.close();
-            fileReader.close();
-    
-        } catch (FileNotFoundException e) {
-            System.out.println("EL FITXER NO EXISTEIX");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }
