@@ -3,8 +3,7 @@ import java.util.ArrayList;
 
 public class Fitxer {
 
-    private static String a;
-    private static int count = 1;
+    private static String a = "";
     private static String mensaje = ("Client's name:  " + Botiga.client.getName() + "\n" +
             "Client's phone: " + Botiga.client.getPhone() + "\n" +
             "Order's date:   " + Botiga.client.getDate() + "\n" +
@@ -16,9 +15,8 @@ public class Fitxer {
         File file = new File(fileName);
         try (FileWriter line = new FileWriter(file)) {
             line.write(mensaje);
-            while (count < articles.size()) {
-                a = a + articles.get(count);
-                count++;
+            for (int i = 0; i < articles.size(); i++) {
+                a = articles.get(i).toString();
                 line.write(a);
             }
             line.close();
@@ -33,12 +31,11 @@ public class Fitxer {
         String fileName = "C:\\Users\\migue\\Documents\\Media TIC\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + Botiga.client.getName() + "_"+ System.currentTimeMillis() + ".csv";
         File file = new File(fileName);
         try (FileWriter line = new FileWriter(file)) {
-            line.write(Botiga.client.getName() + ";" + Botiga.client.getPhone() + ";" + Botiga.client.getDate());
-            while (count < articles.size()) {
-                a = a + ";" + articles.get(count).getName() + ";" + articles.get(count).getQuantity() + ";" + articles.get(count).getUnit();
-                count++;
-                line.write(a);
+            line.write(Botiga.client.getName() + ";" + Botiga.client.getPhone() + ";" + Botiga.client.getDate() + ";");
+            for (int i = 0; i < articles.size(); i++) {
+                a = a + Article.toCSV(articles.get(i));
             }
+            line.write(a);
             line.close();
         } catch (FileNotFoundException e) {
             System.out.println("The document no exist");
@@ -52,11 +49,10 @@ public class Fitxer {
         File file = new File(fileName);
         try (FileWriter line = new FileWriter(file)) {
             line.write(Botiga.client.getName() + ";" + Botiga.client.getPhone() + ";" + Botiga.client.getDate());
-            while (count < articles.size()) {
-                Article.toCSV(articles);
-                count++;
-                line.write(a);
+            for (int i = 0; i < articles.size(); i++) {
+                a = a + Article.toCSV(articles.get(i));
             }
+            line.write(a);
             line.close();
         } catch (FileNotFoundException e) {
             System.out.println("The document no exist");

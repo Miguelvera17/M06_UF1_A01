@@ -1,14 +1,14 @@
-import java.util.ArrayList;
+import java.util.Locale;
 
 public class Article {
 
     private String name;
-    private String quantity;
+    private Float quantity;
     private String unit;
     
     public Article(){}
     
-    public Article(String name, String quantity, String unit) {
+    public Article(String name, Float quantity, String unit) {
         this.name = name;
         this.quantity = quantity;
         this.unit = unit;
@@ -22,11 +22,11 @@ public class Article {
         this.name = name;
     }
 
-    public String getQuantity() {
+    public Float getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(Float quantity) {
         this.quantity = quantity;
     }
 
@@ -40,15 +40,10 @@ public class Article {
 
     @Override
     public String toString() {
-        return String.format("\n%-10s %-10s %-15s", this.quantity, this.unit, this.name);}
+        return String.format(Locale.US,"\n%-13.1f %-10s %-15s", this.quantity, this.unit, this.name);}
 
-    public static String toCSV(ArrayList<Article> articles) {
-        String a = "";
-        int count = 0;
-        while (count < articles.size()) {
-            a = a + ";" + articles.get(count).getName() + ";" + articles.get(count).getQuantity() + ";" + articles.get(count).getUnit();
-            count++;
-        }
-        return "System.";
+    public static String toCSV(Article article) {
+        String a = article.getName() + ";" + article.getQuantity() + ";" + article.getUnit();
+        return a;
     }
 }
