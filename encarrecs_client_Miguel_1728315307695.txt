@@ -1,6 +1,0 @@
-Client's name:  Miguel
-Client's phone: 628528182
-Order's date:   20/20/20
-Quantity       Units     Article
-============= ========== ===========null
-2.0        u          manzana        

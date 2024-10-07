@@ -1,8 +1,0 @@
-Client's name:  sadfsdf
-Client's phone: asdfsd
-Order's date:   asdfsdf
-Quantity       Units     Article
-============= ========== ===========null
-adsfsd     asdf       asdf           null
-adsfsd     asdf       asdf           
-122        aaaaaaaa   qqqqqqqqqqqqqq 

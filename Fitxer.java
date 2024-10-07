@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Fitxer {
 
     private static String a;
-    private static int count = 0;
+    private static int count = 1;
     private static String mensaje = ("Client's name:  " + Botiga.client.getName() + "\n" +
             "Client's phone: " + Botiga.client.getPhone() + "\n" +
             "Order's date:   " + Botiga.client.getDate() + "\n" +
