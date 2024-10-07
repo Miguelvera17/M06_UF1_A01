@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Article {
 
     private String name;
@@ -40,7 +42,13 @@ public class Article {
     public String toString() {
         return String.format("\n%-10s %-10s %-15s", this.quantity, this.unit, this.name);}
 
-    public String toCSV() {
+    public static String toCSV(ArrayList<Article> articles) {
+        String a = "";
+        int count = 0;
+        while (count < articles.size()) {
+            a = a + ";" + articles.get(count).getName() + ";" + articles.get(count).getQuantity() + ";" + articles.get(count).getUnit();
+            count++;
+        }
         return "System.";
     }
 }

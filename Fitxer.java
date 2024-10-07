@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.io.FileWriter;
 
 public class Fitxer {
 
@@ -23,6 +22,10 @@ public class Fitxer {
                 line.write(a);
             }
             line.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("The document no exist");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -37,6 +40,10 @@ public class Fitxer {
                 line.write(a);
             }
             line.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("The document no exist");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -46,31 +53,15 @@ public class Fitxer {
         try (FileWriter line = new FileWriter(file)) {
             line.write(Botiga.client.getName() + ";" + Botiga.client.getPhone() + ";" + Botiga.client.getDate());
             while (count < articles.size()) {
-                a = a + ";" + articles.get(count).getName() + ";" + articles.get(count).getQuantity() + ";" + articles.get(count).getUnit();
+                Article.toCSV(articles);
                 count++;
                 line.write(a);
             }
             line.close();
-        }
-    }
-    
-    /*  Method void to read the file f1
-    public static void read() {
-		try {
-            FileReader fileReader = new FileReader(fileName);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                System.out.println(line);
-            }
-    
-            bufferedReader.close();
-            fileReader.close();
-    
         } catch (FileNotFoundException e) {
-            System.out.println("EL FITXER NO EXISTEIX");
+            System.out.println("The document no exist");
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }*/
+    }
 }

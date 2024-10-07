@@ -78,7 +78,42 @@ public class Botiga {
             }
             //Option to show a previus order   
             if (action.equals("s")) {
-                //Fitxer.read();
+                System.out.print("\nIndicate the path: ");
+                String filePath = Entrada.readLine();  // Cambia esto por la ruta de tu archivo
+
+                try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+                    String line;
+
+            // Leer cada línea del archivo CSV
+                     while ((line = br.readLine()) != null) {
+                        // Ignorar líneas vacías
+                        if (line.trim().isEmpty()) {
+                            continue;
+                        }
+
+                        // Dividir la línea por comas
+                        String[] values = line.split(";");
+                        String clientName = values[0];
+                        String clientPhone = values[1];
+                        String orderDate = values[2];  // Parece que hay un valor "null", puedes limpiarlo
+                        String article = values[3];
+                        String quantity = values[4];
+                        String units = values[5];
+                        System.out.println("\nClient's name:  " + clientName);
+                        System.out.println("Client's phone: " + clientPhone);
+                        System.out.println("Order's date:   " + orderDate);
+
+                        // Imprimir encabezados con formato
+                        System.out.println(String.format("%-12s %-10s %-12s", "Quantity", "Units", "Article"));
+                        System.out.println(String.format("=========== ========== ==========="));
+
+                        // Imprimir los datos con formato alineado
+                        System.out.println(String.format("%-12s %-10s %-12s", quantity, units, article));
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
             }
             // If the option is not correct will ask again to choose the correct
             else {
@@ -95,6 +130,6 @@ public class Botiga {
                 action = Entrada.readLine();
             }
         }
-        System.out.println("\nBye");
+        System.out.println("\nBye\n");
     }
 }
