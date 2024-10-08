@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class Botiga {
+public class Store {
     
     public static Client client;
     public static Article article;
@@ -51,7 +51,7 @@ public class Botiga {
                             quantity = Float.parseFloat(quantityInput);
                             validQuantity = true; 
                         } catch (NumberFormatException e) {
-                            System.out.println("\nNumber no valid, try again\n");
+                            System.out.println("\nQuantity no valid, try again\n");
                         }
                     }
                     System.out.print("Unit:\t    ");
@@ -75,28 +75,35 @@ public class Botiga {
                     }
                 }
                 
-                System.out.println("\nWhich document you want?:\n" + 
+                while (true) {
+                    System.out.println("\nWhich document you want?:\n" + 
                                     "a) Albaran  [a] \n" + 
                                     "b) Binary   [b]\n" +
                                     "c) CSV \t    [c] \n");
-                System.out.print("----> ");
-                String opt = Entrada.readLine();
-                
-                if (opt.equals("a")) {
-                    Fitxer.createAlbaran(articles);
-                    System.out.println("\nPrinted document");
-                    break;
+                    System.out.print("----> ");
+                    String opt = Entrada.readLine();
+                    if (opt.equals("a")) {
+                        Fitxer.createAlbaran(articles);
+                        
+                        break;
+                    }
+                    if (opt.equals("b")) {
+                        Fitxer.createBinari(articles);
+                        
+                        break;
+                    }
+                    if (opt.equals("c")) {
+                        Fitxer.createCSV(articles);
+    
+                        break;
+                    }
+                    if(!opt.equals("a") && !opt.equals("b") && !opt.equals("c")) {
+                        System.out.println("\n=======================");
+                        System.out.println("Invalid option\nChoose a correct option");
+                        System.out.println("======================="); 
+                    }
                 }
-                if (opt.equals("b")) {
-                    
-                    System.out.println("\nDocument created successfully");
-                    break;
-                }
-                if (opt.equals("c")) {
-                    Fitxer.createCSV(articles);
-                    System.out.println("\nDocument created successfully");
-                    break;
-                }
+                break;
             }
             //Option to show a previus order   
             if (action.equals("s")) {
