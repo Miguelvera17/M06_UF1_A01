@@ -20,7 +20,7 @@ public class Botiga {
                             "b) Show a order \t[s] \n" + 
                             "c) Exit\t\t\t[x]\n" + 
                             "\n" +
-                            "Select your request: ");
+                            "----> ");
         String action = Entrada.readLine();
         // Verify is the option is correct, "x" to exit
         while (!action.equals("x")) {
@@ -59,17 +59,17 @@ public class Botiga {
                     System.out.println("================================");
                     client.article = new Article(articleName,quantity,unit);
                     articles.add(client.article);
-                    System.out.println("\nWould you like to add more articles? [y] [n]\n" );
+                    System.out.println("\nWould you like to add more articles? [y] [n]" );
+                    System.out.print("----> " );
                     loop = Entrada.readLine();
                     num++;
                 }
                 
-                System.out.print("\nWhich document you want?:\n" + 
+                System.out.println("\nWhich document you want?:\n" + 
                                     "a) Albaran  [a] \n" + 
                                     "b) Binary   [b]\n" +
-                                    "c) CSV \t    [c] \n" +
-                                    "\nSelect your option: ");
-                
+                                    "c) CSV \t    [c] \n");
+                System.out.print("----> ");
                 String opt = Entrada.readLine();
                 
                 if (opt.equals("a")) {
@@ -103,15 +103,20 @@ public class Botiga {
                         String clientName = values[0];
                         String clientPhone = values[1];
                         String orderDate = values[2];
-                        String article = values[3];
-                        String quantity = values[4];
-                        String units = values[5];
                         System.out.println("\nClient's name:  " + clientName);
                         System.out.println("Client's phone: " + clientPhone);
                         System.out.println("Order's date:   " + orderDate);
-                        System.out.println(String.format("%-12 %-10s %-12s", "Quantity", "Units", "Article"));
+                        System.out.println(String.format("%-12s %-10s %-12s", "Quantity", "Units", "Article"));
                         System.out.println(String.format("=========== ========== ==========="));
-                        System.out.println(String.format(Locale.US,"%-12.1f %-10s %-12s", quantity, units, article));
+                        for (int i = 3; i < values.length; i += 3) {
+                            String article = values[i];
+                            String quantity = values[i + 1];
+                            String units = values[i + 2];
+        
+                            // Imprimir la información del artículo
+                            System.out.println(String.format(Locale.US, "%-12s %-10s %-12s", quantity, units, article));
+                        }
+
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -129,7 +134,7 @@ public class Botiga {
                             "b) Show a order \t[s] \n" + 
                             "c) Exit\t\t\t[x]\n" + 
                             "\n" +
-                            "Select your request: ");
+                            "----> ");
                 action = Entrada.readLine();
             }
         }

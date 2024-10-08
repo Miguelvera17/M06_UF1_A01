@@ -33,7 +33,11 @@ public class Fitxer {
         try (FileWriter line = new FileWriter(file)) {
             line.write(Botiga.client.getName() + ";" + Botiga.client.getPhone() + ";" + Botiga.client.getDate() + ";");
             for (int i = 0; i < articles.size(); i++) {
-                a = a + Article.toCSV(articles.get(i));
+                if (i == articles.size()-1) {
+                    a = a + Article.toCSV(articles.get(i));
+                } else {
+                    a = a + Article.toCSV(articles.get(i)) + ";";
+                }
             }
             line.write(a);
             line.close();
