@@ -51,7 +51,7 @@ public class Botiga {
                             quantity = Float.parseFloat(quantityInput);
                             validQuantity = true; 
                         } catch (NumberFormatException e) {
-                            System.out.println("\nNo number valid, try again\n");
+                            System.out.println("\nNumber no valid, try again\n");
                         }
                     }
                     System.out.print("Unit:\t    ");
@@ -59,10 +59,20 @@ public class Botiga {
                     System.out.println("================================");
                     client.article = new Article(articleName,quantity,unit);
                     articles.add(client.article);
-                    System.out.println("\nWould you like to add more articles? [y] [n]" );
-                    System.out.print("----> " );
-                    loop = Entrada.readLine();
-                    num++;
+                    while (true) {
+                        System.out.println("\nWould you like to add more articles? [y] [n]" );
+                        System.out.print("----> " );
+                        loop = Entrada.readLine();
+                        if (loop.equals("n")) {
+                            break;
+                        }
+                        if (loop.equals("y")) {
+                            num++;
+                            break;
+                        } else {
+                            System.out.println("\nNo valid, choose a correct option\n");
+                        }
+                    }
                 }
                 
                 System.out.println("\nWhich document you want?:\n" + 
