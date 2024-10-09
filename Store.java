@@ -112,28 +112,22 @@ public class Store {
                                     "b) CSV \t    [c] \n" +
                                     "c) Exit\t    [x]");
                 System.out.print("----> ");
-                String opt = Entrada.readLine();
-                while (!opt.equals("x")) {
-                    if (opt.equals("b")) {
+                String ans = Entrada.readLine();
+                
+                if (ans.equals("b")) {
                         
-                        break;
-                    }
-                    if (opt.equals("c")) {
-                        Fitxer.readCSV();
-                        break;
-                    }
-                    if(!opt.equals("a") && !opt.equals("b") && !opt.equals("x")) {
-                        System.out.println("\n=======================");
-                        System.out.println("Invalid option\nChoose a correct option");
-                        System.out.println("======================="); 
-                    }
-                    System.out.println("\nWhich document do you want read?:\n" +  
-                                    "a) Binary   [b]\n" +
-                                    "b) CSV \t    [c] \n" +
-                                    "c) Exit\t    [x]");
-                    System.out.print("----> ");
-                    opt = Entrada.readLine();
-                }  
+                    break;
+                }
+                if (ans.equals("c")) {
+                    Fitxer.readCSV();
+                    break;
+                }
+                if (ans.equals("x")) {
+                    break;
+                }
+                System.out.println("\n=======================");
+                System.out.println("Invalid option\nChoose a correct option");
+                System.out.println("=======================");
             }
             // If the option is not correct will ask again to choose the correct
             else {
