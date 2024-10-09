@@ -1,7 +1,0 @@
-Client's name:  Pepe
-Client's phone: 545
-Order's date:   543
-Quantity       Units     Article
-============= ========== ===========
-1.0           box        mouse          
-1.0           box        keyboard       

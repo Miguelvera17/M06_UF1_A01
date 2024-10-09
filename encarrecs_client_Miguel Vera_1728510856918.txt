@@ -1,9 +1,0 @@
-Client's name:  Miguel Vera
-Client's phone: 5646544
-Order's date:   17/01/1994
-
-Quantity       Units     Article
-============= ========== ===========
-2.0           kg         manzana        
-3.0           u          papa           
-2.0           bottle     leche          
