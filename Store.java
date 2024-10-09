@@ -76,7 +76,7 @@ public class Store {
                 }
                 
                 while (true) {
-                    System.out.println("\nWhich document you want?:\n" + 
+                    System.out.println("\nWhich document do you want?:\n" + 
                                     "a) Albaran  [a] \n" + 
                                     "b) Binary   [b]\n" +
                                     "c) CSV \t    [c] \n");
@@ -107,38 +107,33 @@ public class Store {
             }
             //Option to show a previus order   
             if (action.equals("s")) {
-                System.out.print("\nIndicate the path: ");
-                String filePath = Entrada.readLine();
-                try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-                    String line;
-
-                    // Read the lines 
-                    while ((line = br.readLine()) != null) {
-
-                        // Separate the values by ";"
-                        String[] values = line.split(";");
-                        String clientName = values[0];
-                        String clientPhone = values[1];
-                        String orderDate = values[2];
-                        System.out.println("\nClient's name:  " + clientName);
-                        System.out.println("Client's phone: " + clientPhone);
-                        System.out.println("Order's date:   " + orderDate);
-                        System.out.println(String.format("%-12s %-10s %-12s", "Quantity", "Units", "Article"));
-                        System.out.println(String.format("=========== ========== ==========="));
-                        for (int i = 3; i < values.length; i += 3) {
-                            String article = values[i];
-                            String quantity = values[i + 1];
-                            String units = values[i + 2];
-        
-                            // Imprimir la información del artículo
-                            System.out.println(String.format(Locale.US, "%-12s %-10s %-12s", quantity, units, article));
-                        }
-
+                System.out.println("\nWhich document do you want read?:\n" +  
+                                    "a) Binary   [b]\n" +
+                                    "b) CSV \t    [c] \n" +
+                                    "c) Exit\t    [x]");
+                System.out.print("----> ");
+                String opt = Entrada.readLine();
+                while (!opt.equals("x")) {
+                    if (opt.equals("b")) {
+                        
+                        break;
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                break;
+                    if (opt.equals("c")) {
+                        Fitxer.readCSV();
+                        break;
+                    }
+                    if(!opt.equals("a") && !opt.equals("b") && !opt.equals("x")) {
+                        System.out.println("\n=======================");
+                        System.out.println("Invalid option\nChoose a correct option");
+                        System.out.println("======================="); 
+                    }
+                    System.out.println("\nWhich document do you want read?:\n" +  
+                                    "a) Binary   [b]\n" +
+                                    "b) CSV \t    [c] \n" +
+                                    "c) Exit\t    [x]");
+                    System.out.print("----> ");
+                    opt = Entrada.readLine();
+                }  
             }
             // If the option is not correct will ask again to choose the correct
             else {
