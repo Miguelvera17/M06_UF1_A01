@@ -82,16 +82,20 @@ public class Fitxer {
             System.out.println("Client's phone: " + f.readUTF());
             System.out.println("Order's date: " + f.readUTF());
             System.out.println("\nQuantity       Units     Article\n" + 
-                                "============= ========== ===========");
-            while (f.available() > 0) {
-                System.out.println(String.format(Locale.US, "%-13.1f %-10s %s", f.readFloat(), f.readUTF(), f.readUTF()));
-            }
+                                    "============= ========== ===========");
+
+            System.out.println(String.format(Locale.US, "%-13.1f %-10s %s", f.readFloat(), f.readUTF(), f.readUTF()));
             f.close();
             f1.close();
         } catch (FileNotFoundException e) {
             System.out.println("\nFAIL, path not correct");
-        } catch (IOException e) {
-            e.printStackTrace();
+            
+        } 
+        catch (EOFException e) {
+            System.out.println("\nFAIL, incorrect document");  
+        }
+        catch (IOException e) {
+                e.printStackTrace();
         }
     }
 
@@ -99,38 +103,37 @@ public class Fitxer {
         // Ask for the path of the document you want to read
         System.out.print("\nIndicate the path: ");
         String filePath = Entrada.readLine();
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line;
+        if (filePath.endsWith(".csv")) {
+            try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+                String line;
 
-            // Read the lines until it finds null 
-            while ((line = br.readLine()) != null) {
+                // Read the lines until it finds null 
+                while ((line = br.readLine()) != null) {
 
-                // Separate the values by ";"
-                String[] values = line.split(";");
-                String clientName = values[0];
-                String clientPhone = values[1];
-                String orderDate = values[2];
-                System.out.println("\nClient's name:  " + clientName);
-                System.out.println("Client's phone: " + clientPhone);
-                System.out.println("Order's date:   " + orderDate);
-                System.out.println(String.format("%-12s %-10s %-12s", "Quantity", "Units", "Article"));
-                System.out.println(String.format("=========== ========== ==========="));
-                for (int i = 3; i < values.length; i += 3) {
-                    if (i+2 < values.length) {
+                    // Separate the values by ";"
+                    String[] values = line.split(";");
+                    String clientName = values[0];
+                    String clientPhone = values[1];
+                    String orderDate = values[2];
+                    System.out.println("\nClient's name:  " + clientName);
+                    System.out.println("Client's phone: " + clientPhone);
+                    System.out.println("Order's date:   " + orderDate);
+                    System.out.println(String.format("%-12s %-10s %-12s", "Quantity", "Units", "Article"));
+                    System.out.println(String.format("=========== ========== ==========="));
+                    for (int i = 3; i < values.length; i += 3) {
                         String article = values[i];
                         String quantity = values[i + 1];
                         String units = values[i + 2];
                         System.out.println(String.format(Locale.US, "%-12s %-10s %-12s", quantity, units, article));
-                    } else {
-                        System.out.println("FAIL, an error occurred while reading");
                     }
-                    
                 }
+            } catch (FileNotFoundException e) {
+                System.out.println("\nFAIL, path not correct");
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("\nFAIL, path not correct");
-        } catch (IOException e) {
-            e.printStackTrace();
+        } else {
+            System.out.println("\nFAIL, incorrect document");
         }
     }
 
