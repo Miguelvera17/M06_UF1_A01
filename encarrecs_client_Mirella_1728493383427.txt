@@ -1,8 +1,0 @@
-Client's name:  Mirella
-Client's phone: +34 650203414
-Order's date:   15/02/2024
-Quantity       Units     Article
-============= ========== ===========
-3.0           bottle     leche          
-3.0           kg         papa           
-2.0           cases      iphone         

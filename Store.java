@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class Store {
     
@@ -115,7 +114,7 @@ public class Store {
                 String ans = Entrada.readLine();
                 
                 if (ans.equals("b")) {
-                        
+                    Fitxer.readBinari();
                     break;
                 }
                 if (ans.equals("c")) {

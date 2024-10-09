@@ -3,11 +3,9 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class Fitxer {
-
     private static String a = "";
-
     public static void createAlbaran(ArrayList<Article> articles) throws IOException{
-        String fileName = "C:\\Users\\migue\\Desktop\\DAM2\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + Store.client.getName() + "_"+ System.currentTimeMillis() + ".txt";
+        String fileName = "C:\\Users\\migue\\Documents\\Media TIC\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + Store.client.getName() + "_"+ System.currentTimeMillis() + ".txt";
         File file = new File(fileName);
         try (BufferedWriter line = new BufferedWriter(new FileWriter(file))) {
             line.write("Client's name:  " + Store.client.getName() + "\n" +
@@ -22,14 +20,14 @@ public class Fitxer {
             line.close();
             System.out.println("\nDocument created successfully");
         } catch (FileNotFoundException e) {
-            System.out.println("\nFAIL");
+            System.out.println("\nFAIL, document no created");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public static void createCSV(ArrayList<Article> articles) throws IOException{
-        String fileName = "C:\\Users\\migue\\Desktop\\DAM2\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + Store.client.getName() + "_"+ System.currentTimeMillis() + ".csv";
+        String fileName = "C:\\Users\\migue\\Documents\\Media TIC\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + Store.client.getName() + "_"+ System.currentTimeMillis() + ".csv";
         File file = new File(fileName);
         try (BufferedWriter line = new BufferedWriter(new FileWriter(file))) {
             line.write(Store.client.getName() + ";" + Store.client.getPhone() + ";" + Store.client.getDate() + ";");
@@ -44,29 +42,54 @@ public class Fitxer {
             line.close();
             System.out.println("\nDocument created successfully");
         } catch (FileNotFoundException e) {
-            System.out.println("\nFAIL");
+            System.out.println("\nFAIL, document no created");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public static void createBinari(ArrayList<Article> articles) throws IOException{
-        String fileName = "C:\\Users\\migue\\Desktop\\DAM2\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + Store.client.getName() + "_"+ System.currentTimeMillis() + ".dat";
+        String fileName = "C:\\Users\\migue\\Documents\\Media TIC\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + Store.client.getName() + "_"+ System.currentTimeMillis() + ".dat";
         File file = new File(fileName);
-        FileOutputStream fileStr1 = new FileOutputStream(file);
-        try (DataOutputStream line = new DataOutputStream(fileStr1)) {
+        try (FileOutputStream fileStr1 = new FileOutputStream(file)) {
+            DataOutputStream line = new DataOutputStream(fileStr1);
             line.writeUTF(Store.client.getName());
             line.writeUTF(Store.client.getPhone());
             line.writeUTF(Store.client.getDate());
             for (int i = 0; i < articles.size(); i++) {
-                a = articles.get(i).getName() + " " + articles.get(i).getUnit() + " " + articles.get(i).getQuantity();
-                line.writeBytes(a);
+                Article art = articles.get(i);
+                line.writeFloat(art.getQuantity());
+                line.writeUTF(art.getUnit());
+                line.writeUTF(art.getName());
             }
             line.close();
             fileStr1.close();
             System.out.println("\nDocument created successfully");
         } catch (FileNotFoundException e) {
-            System.out.println("\nFAIL");
+            System.out.println("\nFAIL, document no created");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void readBinari() {
+        System.out.print("\nIndicate the path: ");
+        String filePath = Entrada.readLine();
+        try (FileInputStream f1 = new FileInputStream(filePath)) {
+            DataInputStream f = new DataInputStream(f1);
+
+            System.out.println("\nClient's name: " + f.readUTF());
+            System.out.println("Client's phone: " + f.readUTF());
+            System.out.println("Order's date: " + f.readUTF());
+            System.out.println("\nQuantity       Units     Article\n" + 
+                                "============= ========== ===========");
+            while (f.available() > 0) {
+                System.out.println(String.format(Locale.US, "%-13.1f %-10s %s", f.readFloat(), f.readUTF(), f.readUTF()));
+            }
+            f.close();
+            f1.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("\nFAIL, document no created");
         } catch (IOException e) {
             e.printStackTrace();
         }
