@@ -37,6 +37,18 @@ public class Client {
         this.date = date;
     }
 
-    
+    public static Client createClient() {
+        System.out.print("\n" +
+                                "======= Client information =======\n" +
+                                "Name:\t\t");
+                String name = Entrada.readLine();
+                System.out.print("Phone:\t\t");
+                String phone = Entrada.readLine();
+                System.out.print("Order's date:\t");
+                String date = Entrada.readLine();
+                System.out.println("==================================");
+                Client client = new Client(name,phone,date);
+                return client;
+    }
 
 }

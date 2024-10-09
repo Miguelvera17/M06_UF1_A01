@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class Article {
@@ -5,6 +6,7 @@ public class Article {
     private String name;
     private Float quantity;
     private String unit;
+    //public static String loop = "y";
     
     public Article(){}
     
@@ -36,6 +38,51 @@ public class Article {
 
     public void setUnit(String unit) {
         this.unit = unit;
+    }
+
+    public static ArrayList<Article> createArticle(Client client) {
+        int num = 1;
+        ArrayList<Article> articles = new ArrayList<>();
+        System.out.println("\nIndicate your order");
+        String loop = "y";
+        while (loop.equals("y") ) { 
+            System.out.println("\n=========== Article " + num + " ==========");
+            System.out.print("Article/es: ");
+            String articleName = Entrada.readLine();
+            float quantity = 0; //Initialize quantity
+            boolean validQuantity = false; // To verify  if quantity is valid
+            while (!validQuantity) {
+                System.out.print("Quantity:   ");
+                String quantityInput = Entrada.readLine();
+                            
+                try {
+                    quantity = Float.parseFloat(quantityInput);
+                    validQuantity = true; 
+                } catch (NumberFormatException e) {
+                    System.out.println("\nQuantity no valid, try again\n");
+                }
+            }           
+                System.out.print("Unit:\t    ");
+                String unit = Entrada.readLine();
+                System.out.println("================================");
+                client.article = new Article(articleName,quantity,unit);
+                articles.add(client.article);
+                while (true) {
+                    System.out.println("\nWould you like to add more articles? [y] [n]" );
+                    System.out.print("----> " );
+                    loop = Entrada.readLine();
+                    if (loop.equals("n")) {
+                        break;
+                    }
+                    if (loop.equals("y")) {
+                        num++;
+                        break;
+                    } else {
+                        System.out.println("\nNo valid, choose a correct option\n");
+                    }
+            }
+        }
+        return articles;
     }
 
     @Override

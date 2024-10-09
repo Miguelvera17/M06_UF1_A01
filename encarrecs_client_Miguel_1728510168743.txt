@@ -1,0 +1,8 @@
+Client's name:  Miguel
+Client's phone: +34 628528182
+Order's date:   20/20/2024
+Quantity       Units     Article
+============= ========== ===========
+4.0           kg         manzana        
+2.0           bottle     leche          
+1.0           box        lapiz          
