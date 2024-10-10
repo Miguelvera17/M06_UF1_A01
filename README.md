@@ -15,7 +15,7 @@ Binary: Compact binary format for efficiency.
 Data Retrieval: Read previously saved orders from files.
 
 📦 Project Structure
-.
+````
 ├── M06_UF1_A01
     ├── Entrada.java          # Class for handling user input
     ├── Article.java          # Class for managing articles
@@ -23,7 +23,7 @@ Data Retrieval: Read previously saved orders from files.
     ├── Fitxer.java           # Class for file operations
     └── Store.java            # Main class for the store application
     └── README.md            # Project documentation
-    
+````   
 
 🚀 Getting Started
 1. Prerequisites
