@@ -24,13 +24,6 @@ Data Retrieval: Read previously saved orders from files.
     └── README.md            # Project documentation
 ````   
 
-# 🚀 Getting Started
-1. Prerequisites
-Make sure you have the following installed:
-
-Java Development Kit (JDK) 8 or higher
-An IDE (like IntelliJ IDEA, Eclipse, or NetBeans) or a text editor
-
 # 📖 Usage
 Step 1: Client Information
 When prompted, enter the client’s name, phone number, and order date.
@@ -93,8 +86,8 @@ Binary Format
 # ❌ Error Handling
 The application handles various exceptions, such as:
 
-FileNotFoundException: Displays an error message if the specified file path is incorrect.
-IOException: Catches general I/O errors during file operations.
-EOFException: Indicates if the end of the file has been reached unexpectedly.
+1. FileNotFoundException: Displays an error message if the specified file path is incorrect.
+2. IOException: Catches general I/O errors during file operations.
+3. EOFException: Indicates if the end of the file has been reached unexpectedly.
 
 🎊 Thank you for using My Store! Happy ordering! 🎊
