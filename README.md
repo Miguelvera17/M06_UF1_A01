@@ -15,6 +15,7 @@ Binary: Compact binary format for efficiency.
 Data Retrieval: Read previously saved orders from files.
 
 📦 Project Structure
+
 ````
 ├── M06_UF1_A01
     ├── Entrada.java          # Class for handling user input
@@ -36,21 +37,26 @@ An IDE (like IntelliJ IDEA, Eclipse, or NetBeans) or a text editor
 Step 1: Client Information
 When prompted, enter the client’s name, phone number, and order date.
 
+````
 ======= Client information =======
 Name:        Miguel
 Phone:       +34 628528182
 Order's date: 2024-10-09
 ==================================
+```` 
 
 Step 2: Add Articles
 You can add multiple articles to the order. For each article, enter the name, quantity, and unit.
 
+```` 
 Indicate your order
 =========== Article 1 ===========
 Article/es: Coffee
 Quantity:   2
 Unit:       kg
 ================================
+```` 
+
 Would you like to add more articles? [y] [n]
 ----> y
 
