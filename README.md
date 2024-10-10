@@ -1,16 +1,19 @@
 # <em> 🎉 Welcome to My Store! 🛒 </em>
 
 # 📚 Overview
-This Java project is a simple store management system that allows users to create and manage orders. Users can add client information, create articles for orders, and save them in various formats (TXT, CSV, and binary). The program provides a console-based interface for seamless interaction.
+This Java project is a simple store management system that allows users to create and manage orders. Users can add client information, create articles for orders, 
+and save them in various formats (TXT, CSV, and binary).
 
-💻 Features
-Client Management: Create and manage client information.
-Order Creation: Add multiple articles to an order.
-Document Handling: Save orders in different formats:
-TXT: Human-readable text format.
-CSV: Comma-separated values for easy data manipulation.
-Binary: Compact binary format for efficiency.
-Data Retrieval: Read previously saved orders from files.
+# 💻 Features
+````
+a) Client Management: Create and manage client information.
+b) Order Creation: Add multiple articles to an order.
+c) Document Handling: Save orders in different formats:
+d) TXT: Human-readable text format.
+e) CSV: Comma-separated values for easy data manipulation.
+f) Binary: Compact binary format for efficiency.
+g) Data Retrieval: Read previously saved orders from files.
+````
 
 # 📦 Project Structure
 
