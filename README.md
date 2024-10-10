@@ -2,7 +2,7 @@
 
 <em> 🎉 Welcome to My Store! 🛒 </em>
 
-📚 Overview
+# 📚 Overview
 This Java project is a simple store management system that allows users to create and manage orders. Users can add client information, create articles for orders, and save them in various formats (TXT, CSV, and binary). The program provides a console-based interface for seamless interaction.
 
 💻 Features
@@ -14,7 +14,7 @@ CSV: Comma-separated values for easy data manipulation.
 Binary: Compact binary format for efficiency.
 Data Retrieval: Read previously saved orders from files.
 
-📦 Project Structure
+# 📦 Project Structure
 
 ````
 ├── M06_UF1_A01
@@ -26,14 +26,14 @@ Data Retrieval: Read previously saved orders from files.
     └── README.md            # Project documentation
 ````   
 
-🚀 Getting Started
+# 🚀 Getting Started
 1. Prerequisites
 Make sure you have the following installed:
 
 Java Development Kit (JDK) 8 or higher
 An IDE (like IntelliJ IDEA, Eclipse, or NetBeans) or a text editor
 
-📖 Usage
+# 📖 Usage
 Step 1: Client Information
 When prompted, enter the client’s name, phone number, and order date.
 
@@ -69,7 +69,7 @@ c) CSV
 Step 4: Read Previous Orders
 You can read saved orders by specifying the file path when prompted.
 
-📄 File Formats
+# 📄 File Formats
 TXT Format
 
 Client's name:  Miguel
@@ -86,7 +86,7 @@ Miguel;+34 628528182;2024-10-09;Coffee;2;kg
 
 Binary Format
 
-❌ Error Handling
+# ❌ Error Handling
 The application handles various exceptions, such as:
 
 FileNotFoundException: Displays an error message if the specified file path is incorrect.
