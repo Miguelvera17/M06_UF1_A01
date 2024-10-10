@@ -1,5 +1,3 @@
-# Actividad 01 - Gestió de fitxers i contingut: text i binari
-
 # <em> 🎉 Welcome to My Store! 🛒 </em>
 
 # 📚 Overview
