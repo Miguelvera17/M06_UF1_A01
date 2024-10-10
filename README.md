@@ -1,6 +1,6 @@
 # Actividad 01 - Gestió de fitxers i contingut: text i binari
 
-<em> 🎉 Welcome to My Store! 🛒 </em>
+# <em> 🎉 Welcome to My Store! 🛒 </em>
 
 # 📚 Overview
 This Java project is a simple store management system that allows users to create and manage orders. Users can add client information, create articles for orders, and save them in various formats (TXT, CSV, and binary). The program provides a console-based interface for seamless interaction.
@@ -57,21 +57,25 @@ Unit:       kg
 ================================
 ```` 
 
+````
 Would you like to add more articles? [y] [n]
 ----> y
-
+````
 Step 3: Save Order
 Choose the format to save the order:
 
-a) Albaran (TXT)
-b) Binary
-c) CSV
+````
+a) Albaran  (TXT)
+b) Binary   (DAT)
+c) CSV      (CSV)
+````
+
 Step 4: Read Previous Orders
 You can read saved orders by specifying the file path when prompted.
 
 # 📄 File Formats
 TXT Format
-
+````
 Client's name:  Miguel
 Client's phone: +34 628528182
 Order's date:   2024-10-09
@@ -79,10 +83,12 @@ Order's date:   2024-10-09
 Quantity       Units     Article
 ============= ========== ===========
 2.0           kg        Coffee
+````
 
 CSV Format
-
+````
 Miguel;+34 628528182;2024-10-09;Coffee;2;kg
+````
 
 Binary Format
 
