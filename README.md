@@ -24,7 +24,7 @@ g) Data Retrieval: Read previously saved orders from files.
     ├── Client.java           # Class for managing client information
     ├── Fitxer.java           # Class for file operations
     └── Store.java            # Main class for the store application
-    └── README.md            # Project documentation
+    └── README.md             # Project documentation
 ````   
 
 # 📖 Usage
