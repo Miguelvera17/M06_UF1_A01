@@ -26,18 +26,18 @@ g) Data Retrieval: Read previously saved orders from files.
     └── Store.java            # Main class for the store application
     └── README.md             # Project documentation
 ````   
-Store.java
+# 🏬 Store.java
 
-- Variables estáticas:
+- Static variables:
 
 1. public static Article article: Representa un artículo en la tienda.
-2. public static int num: Cuenta el número de artículos creados (inicia en 1).
+2. public static int num: Count the number of articles (start in 1).
 
-- Método main(String[] args): El flujo principal se gestiona aquí. Presenta un menú que permite al usuario elegir entre las siguientes opciones:
+- Método main(String[] args): The main flow is managed here. 
 ````
-n) Crear un nuevo pedido.
-s) Mostrar un pedido anterior.
-x) Salir del sistema.
+n) Generate new order.
+s) Show a order.
+x) Exit.
 ````
 - The menu is shown when the program is launched and runs in a while loop until the user enters the exit option (x).
 
@@ -52,18 +52,51 @@ x) Salir del sistema.
 1. Calls Fitxer.selectReadDocument() to allow the user to select and view a previously saved order document.
 2. Input validation: If the user enters an invalid option, an error message is displayed, prompting them to try again.
 
-- Client: Responsible for creating and managing client instances. Provides static methods to initialize clients.
+# 👦👧 Client.java
 
-- Article: Manages the creation of articles associated with a client.
-    ````
-    a) createArticle(Client client) generates a list of articles for a given client.`
-    ````
-- Fitxer: Handles file operations such as creating and reading documents.
+1. Attributes
 ````
-    a) selectDocument(ArrayList<Article> articles, Client client) allows the creation of a document based on the articles and client.
-    b) selectReadDocument() loads a previously saved document for review.
+a) public String name: Stores the name of the client.
+b) public String phone: Stores the client's phone number.
+c) public String date: Stores the date associated with the client's order.
+d) public Article articles: Represents the articles associated with the client (though it seems to be a single Article, this might need to be an ArrayList<Article> for multiple articles).
 ````
-- Entrada: Handles console input. It uses a BufferedReader to read user input from the console (System.in).
+2. Constructors
+````
+a) Default Constructor: public Client() {} This constructor allows the creation of a Client object without initializing its attributes.
+b) Parameterized Constructor: This constructor initializes the name, phone, and date attributes with the provided values when a Client object is created.
+````
+3. Getter and Setter Methods
+````
+Getters:
+
+a) public String getName() returns the client's name.
+b) public String getPhone() returns the client's phone number.
+c) public String getDate() returns the order date.
+
+Setters:
+
+a) public void setName(String name) updates the client's name.
+b)public void setPhone(String phone) updates the client's phone number.
+c) public void setDate(String date) updates the order date.
+````
+4. Method to Create a New Client
+````
+a) public static Client createClient(): This static method prompts the user to enter the client's information via the console. It performs the following steps:
+
+- Prints a header for client information.
+- Asks the user to input the client's name, phone number, and order date using Entrada.readLine(), which likely reads input from the console.
+- Displays a line indicating the end of input.
+- Creates a new Client object using the provided information and returns it
+````
+# Article: 
+
+# Fitxer
+
+
+# Entrada
+
+
 
 
 # 📖 Usage
