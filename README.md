@@ -1,4 +1,4 @@
-<em><h1 align="center"> 🎉 Welcome to My Store! 🛒 </h1>  </em>
+<em><h1 align="center">  Welcome to My Store! 🛒 </h1>  </em>
 
 # 📚 Overview
 This Java project is a simple store management system that allows users to create and manage orders. Users can add client information, create articles for orders, 
