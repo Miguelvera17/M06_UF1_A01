@@ -34,18 +34,18 @@ Store.java
 2. public static int num: Cuenta el número de artículos creados (inicia en 1).
 
 - Método main(String[] args): El flujo principal se gestiona aquí. Presenta un menú que permite al usuario elegir entre las siguientes opciones:
-
+````
 n) Crear un nuevo pedido.
 s) Mostrar un pedido anterior.
 x) Salir del sistema.
-
+````
 - The menu is shown when the program is launched and runs in a while loop until the user enters the exit option (x).
 
 - Generate a new order (n):
 
 1. Calls Client.createClient() to create a new client.
 2. Calls Article.createArticle(client) to generate a list of articles associated with the client.
-3. Finally, Fitxer.selectDocument(articles, client) allows the user to select the type of document they want to create (invoice, delivery note, etc.).
+3. Fitxer.selectDocument(articles, client) allows the user to select the type of document they want to create.
 
 - Show previous order (s):
 
@@ -55,12 +55,12 @@ x) Salir del sistema.
 - Client: Responsible for creating and managing client instances. Provides static methods to initialize clients.
 
 - Article: Manages the creation of articles associated with a client.
-    createArticle(Client client) generates a list of articles for a given client.
+    a) createArticle(Client client) generates a list of articles for a given client.
 - Fitxer: Handles file operations such as creating and reading documents.
 
-    selectDocument(ArrayList<Article> articles, Client client) allows the creation of a document based on the articles and client.
-    selectReadDocument() loads a previously saved document for review.
-    
+    a) selectDocument(ArrayList<Article> articles, Client client) allows the creation of a document based on the articles and client.
+    b) selectReadDocument() loads a previously saved document for review.
+
 - Entrada: Handles console input. It uses a BufferedReader to read user input from the console (System.in).
 
 
