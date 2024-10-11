@@ -133,52 +133,44 @@ a) public static String toCSV(Article article): This static method converts an A
 
 # 📃 Fitxer.java
 
-1. private static String a: variable used to accumulate article information.
+1. private static String a: variable use to accumulate article information.
 2. public static void createAlbaran(...):
 ````
-a) Purpose: This method creates a delivery note (albarán) as a text file.
-b) Parameters: Takes an ArrayList<Article> representing the articles ordered by the client and a Client object.
-c) File Creation: The method constructs a filename that includes the client's name and a timestamp, creating the file in a specified directory.
-d) Content Writing: It writes the client’s name, phone number, order date, and a formatted list of articles to the file.
-e) Error Handling: It catches exceptions related to file creation and I/O issues, printing relevant error messages when applicable.
+a) Purpose: Create a delivery note (.txt).
+b) Parameters: Received a list of articles ordered by the client and a client.
+c) Error Handling: It catches exceptions related to file creation and I/O issues.
 ````
 3. public static void createCSV(...):
 ````
-a) Purpose: This method creates a CSV file containing client and article data.
-b) Parameters: Similar to the previous method, it takes an ArrayList<Article> and a Client.
-c) Content Writing: It first writes the client's information and then accumulates the articles into a single line formatted as CSV.
-d) Error Handling: As with createAlbaran, it includes exception handling for file creation and I/O issues.
+a) Purpose: Create a .CSV file.
+b) Parameters: Received a list of articles ordered by the client and a client.
+c) Error Handling: Include exception handling for file creation and I/O issues.
 ````
 4. public static void createBinari(...):
 ````
-a) Purpose: This method creates a binary file to store client and article data in a format suitable for binary reading.
-b) Parameters: Accepts the same parameters as previous methods.
-c) Content Writing: It writes the client's name, phone, and date using UTF encoding and then iterates through the articles, writing their quantity, unit, and name.
-d) Error Handling: Implements exception handling for file-related issues, similar to the other methods.
+a) Purpose: Create a binary file.
+b) Parameters: Received a list of articles ordered by the client and a client.
+c) Error Handling: Implements exception handling for file-related issues, similar to the other methods.
 ````
 5. public static void readBinari():
 ````
-a) Purpose: This method reads a binary file containing client and article data.
+a) Purpose: Read a binary file.
 b) Input: Prompts the user to specify the path of the binary file to read.
-c) Content Reading: It reads the client's details and iterates through the articles, printing their information.
-d) Error Handling: Catches exceptions for file not found and end-of-file issues.
+c) Error Handling: Catches exceptions for file not found and end-of-file issues.
 ````
 6. public static void readCSV():
 ````
-a) Purpose: This method reads a CSV file and prints its contents in a formatted manner.
+a) Purpose: Read a CSV file.
 b) Input: Similar to readBinari, it asks for the file path.
-c) Content Reading: It splits each line into values based on the delimiter and prints the client's and articles' details in a structured format.
-d) Error Handling: Checks for valid file extensions and handles exceptions for file reading.
+c) Error Handling: Checks for valid file extensions and handles exceptions for file reading.
 ````
 7. public static void selectDocument(...):
 ````
-a) Purpose: allows to choose which type of document to create (Albarán, binary, or CSV).
-b) Input Handling: It prompts for user input and calls the corresponding document creation method based on the selection.
+a) Purpose: Choose which type of document to create (Albarán, binary, or CSV).
 ````
 8. public static void selectReadDocument():
 ````
-a) Purpose: allows to choose which type of document to read (binary or CSV).
-b) Input Handling: Similar to selectDocument, it prompts the user for input and calls the appropriate read method.
+a) Purpose: Choose which type of document to read (binary or CSV).
 ````
 
 # ➡️ Entrada.java
@@ -190,6 +182,7 @@ b) Input Handling: Similar to selectDocument, it prompts the user for input and 
 
 
 # 📖 Usage
+
 Step 1: Client Information
 When prompted, enter the client’s name, phone number, and order date.
 
@@ -230,7 +223,8 @@ Step 4: Read Previous Orders
 You can read saved orders by specifying the file path when prompted.
 
 # 📄 File Formats
-TXT Format
+
+1. TXT Format
 ````
 Client's name:  Miguel
 Client's phone: +34 628528182
@@ -241,14 +235,16 @@ Quantity       Units     Article
 2.0           kg        Coffee
 ````
 
-CSV Format
+2. CSV Format
 ````
 Miguel;+34 628528182;2024-10-09;Coffee;2;kg
 ````
 
-Binary Format
+3. Binary Format
+![alt text](image-1.png)
 
 # ❌ Error Handling
+
 The application handles various exceptions, such as:
 
 1. FileNotFoundException: Displays an error message if the specified file path is incorrect.

@@ -5,7 +5,7 @@ import java.util.Locale;
 public class Fitxer {
     private static String a = "";
     public static void createAlbaran(ArrayList<Article> articles, Client client) throws IOException{    //Method to create a delivery note
-        String fileName = "C:\\Users\\migue\\Documents\\Media TIC\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + client.getName() + "_"+ System.currentTimeMillis() + ".txt";//select your path
+        String fileName = "C:\\Users\\migue\\Desktop\\DAM2\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + client.getName() + "_"+ System.currentTimeMillis() + ".txt";//select your path
         File file = new File(fileName);
         try (BufferedWriter line = new BufferedWriter(new FileWriter(file))) {
             line.write("Client's name:  " + client.getName() + "\n" +
@@ -27,7 +27,7 @@ public class Fitxer {
     }
 
     public static void createCSV(ArrayList<Article> articles, Client client) throws IOException{  //Method to create a file in CSV
-        String fileName = "C:\\Users\\migue\\Documents\\Media TIC\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + client.getName() + "_"+ System.currentTimeMillis() + ".csv";//select your path
+        String fileName = "C:\\Users\\migue\\Desktop\\DAM2\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + client.getName() + "_"+ System.currentTimeMillis() + ".csv";//select your path
         File file = new File(fileName);
         try (BufferedWriter line = new BufferedWriter(new FileWriter(file))) {
             line.write(client.getName() + ";" + client.getPhone() + ";" + client.getDate() + ";");      // Write the client's information
@@ -49,7 +49,7 @@ public class Fitxer {
     }
 
     public static void createBinari(ArrayList<Article> articles, Client client) throws IOException{     //Method to create a file in binary
-        String fileName = "C:\\Users\\migue\\Documents\\Media TIC\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + client.getName() + "_"+ System.currentTimeMillis() + ".dat";//select your path
+        String fileName = "C:\\Users\\migue\\Desktop\\DAM2\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + client.getName() + "_"+ System.currentTimeMillis() + ".dat";//select your path
         File file = new File(fileName);
         try (FileOutputStream fileStr1 = new FileOutputStream(file)) {
             DataOutputStream line = new DataOutputStream(fileStr1);
