@@ -64,9 +64,9 @@ d) public Article articles: Represents the articles associated with the client (
 2. Constructors
 ````
 a) Default Constructor: public Client() {} This constructor allows the creation of a Client object without initializing its attributes.
-b) Parameterized Constructor: This constructor initializes the name, phone, and date attributes with the provided values when a Client object is created.
+b) Specific: This constructor initializes the name, phone, and date attributes with the provided values when a Client object is created.
 ````
-3. Getter and Setter Methods
+3. Getter and Setter 
 ````
 Getters:
 
@@ -90,6 +90,46 @@ a) public static Client createClient(): This static method prompts the user to e
 - Creates a new Client object using the provided information and returns it
 ````
 # Article: 
+
+1. Attributes
+````
+a) private String name: Holds the name of the article.
+b) private Float quantity: Represents the quantity of the article. It is a Float to allow for decimal values (e.g., 1.5 kg).
+c)private String unit: Specifies the unit of measurement for the quantity (e.g., kg, liters).
+````
+2. Constructors
+````
+a) Default : This constructor allows creating an Article object without initializing its attributes.
+b) Specific : This constructor initializes the name, quantity, and unit attributes with the provided values when a new Article object is created.
+````
+3. Getter and Setter 
+The class provides getter and setter methods for each attribute, allowing controlled access and modification:
+````
+Getters:
+
+a) public String getName(): Returns the name of the article.
+b) public Float getQuantity(): Returns the quantity of the article.
+c) public String getUnit(): Returns the unit of measurement.
+
+Setters:
+
+a) public void setName(String name): Updates the name of the article.
+b) public void setQuantity(Float quantity): Updates the quantity of the article.
+c) public void setUnit(String unit): Updates the unit of measurement.
+````
+4. Method to Create a List of Articles
+````
+a )public static ArrayList<Article> createArticle(Client client): This static method allows users to create a list of articles associated with a client. Here’s how it works:
+````
+
+5. Method for String Representation
+````
+a) public String toString(): This method provides a custom string representation of the Article object, formatted for output. It uses String.format to ensure that the output is neatly aligned.
+````
+6. Method for CSV Format
+````
+a) public static String toCSV(Article article): This static method converts an Article object to a CSV (Comma-Separated Values) format string, which is useful for exporting data. It concatenates the article's name, quantity, and unit, separated by semicolons.
+````
 
 # Fitxer
 
