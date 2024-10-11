@@ -3,44 +3,43 @@ import java.util.Locale;
 
 public class Article {
 
-    private String name;
-    private Float quantity;
-    private String unit;
-    //public static String loop = "y";
+    private String name;                // name of the article
+    private Float quantity;             // quantity of the article/es
+    private String unit;                // unit of the quantity
     
-    public Article(){}
+    public Article(){}                  // Default constructor 
     
-    public Article(String name, Float quantity, String unit) {
+    public Article(String name, Float quantity, String unit) {        // Constructor specific
         this.name = name;
         this.quantity = quantity;
         this.unit = unit;
     }
 
-    public String getName() {
+    public String getName() {                       // Getter
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name) {              // Setter
         this.name = name;
     }
 
-    public Float getQuantity() {
+    public Float getQuantity() {                    // Getter
         return quantity;
     }
 
-    public void setQuantity(Float quantity) {
+    public void setQuantity(Float quantity) {       // Setter
         this.quantity = quantity;
     }
 
-    public String getUnit() {
+    public String getUnit() {                       // Getter
         return unit;
     }
 
-    public void setUnit(String unit) {
+    public void setUnit(String unit) {              // Setter
         this.unit = unit;
     }
 
-    public static ArrayList<Article> createArticle(Client client) {
+    public static ArrayList<Article> createArticle(Client client) {             // Method to create a list of articles for each client
         int num = 1;
         ArrayList<Article> articles = new ArrayList<>();
         System.out.println("\nIndicate your order");
@@ -65,8 +64,8 @@ public class Article {
                 System.out.print("Unit:\t    ");
                 String unit = Entrada.readLine();
                 System.out.println("================================");
-                client.article = new Article(articleName,quantity,unit);
-                articles.add(client.article);
+                client.articles = new Article(articleName,quantity,unit);
+                articles.add(client.articles);
                 while (true) {
                     System.out.println("\nWould you like to add more articles? [y] [n]" );
                     System.out.print("----> " );
@@ -86,10 +85,10 @@ public class Article {
     }
 
     @Override
-    public String toString() {
+    public String toString() {                                                  // Give a special format
         return String.format(Locale.US,"\n%-13.1f %-10s %-15s", this.quantity, this.unit, this.name);}
 
-    public static String toCSV(Article article) {
+    public static String toCSV(Article article) {                               // Give format of csv
         String a = article.getName() + ";" + article.getQuantity() + ";" + article.getUnit();
         return a;
     }

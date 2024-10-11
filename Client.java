@@ -1,43 +1,43 @@
 public class Client {
 
-    public String name;
-    public String phone;
-    public String date;
-    public Article article;
+    public String name;         // name of the client
+    public String phone;        // name of the client
+    public String date;         // name of the client
+    public Article articles;    // articles of the client
 
     public Client() {}
 
-    public Client(String name, String phone, String date) {
+    public Client(String name, String phone, String date) {         // Constructor specific
         this.name = name;
         this.phone = phone;
         this.date = date;
     }
     
-    public String getName() {
+    public String getName() {                                       // Getter
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name) {                              // Setter
         this.name = name;
     }
 
-    public String getPhone() {
+    public String getPhone() {                                      // Getter
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(String phone) {                            // Setter
         this.phone = phone;
     }
 
-    public String getDate() {
+    public String getDate() {                                       // Getter
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(String date) {                              // Setter
         this.date = date;
     }
 
-    public static Client createClient() {
+    public static Client createClient() {                           // Method to create a new client
         System.out.print("\n" +
                                 "======= Client information =======\n" +
                                 "Name:\t\t");

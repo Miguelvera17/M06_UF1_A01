@@ -3,8 +3,8 @@ import java.util.ArrayList;
 
 public class Store {
     
-    public static Article article;
-    public static int num = 1;
+    public static Article article;  // declare an article
+    public static int num = 1;      // count the number of articles
     
     public static void main (String[] args) throws IOException {
         System.out.print("Welcome to my store!!\n" +
@@ -17,25 +17,16 @@ public class Store {
                             "\n" +
                             "----> ");
         String action = Entrada.readLine();
-        // Option to exit
-        while (!action.equals("x")) {
-            // Option to generate a new order
-            if (action.equals("n")) {
-                // Create a new client
-                Client client = Client.createClient();
-                // Create a list of articles for the client
-                ArrayList<Article> articles = Article.createArticle(client);
-                // Select the document you want to create
-                Fitxer.selectDocument(articles, client);
+        while (!action.equals("x")) {                                   // Type [x] to exit
+            if (action.equals("n")) {                                   // Type [n] to generate a new order
+                Client client = Client.createClient();                           // Create a new client
+                ArrayList<Article> articles = Article.createArticle(client);     // Create a list of articles for the client
+                Fitxer.selectDocument(articles, client);                         // Select the document you want to create
             }
-            //Option to show a previus order   
-            if (action.equals("s")) {
-                // Select the document you want to read
-                Fitxer.selectReadDocument();
-                
+            if (action.equals("s")) {                                   // Type [s] to show a previus order
+                Fitxer.selectReadDocument();                                     // Select the document you want to read
             }
-            // If the option is not correct, it will ask again to choose the correct one.
-            if (!action.equals("s") && !action.equals("n")) {
+            if (!action.equals("s") && !action.equals("n")) {  // If the option is not correct, it will ask again to choose the correct one.
                 System.out.println("\n=======================");
                 System.out.println("Invalid option\nChoose a correct option");
                 System.out.println("=======================");

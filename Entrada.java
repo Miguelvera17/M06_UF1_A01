@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 
-public class Entrada {
+public class Entrada {              // Class to allow reading user input from the console.
     private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     
     public static String readLine() {

@@ -4,8 +4,8 @@ import java.util.Locale;
 
 public class Fitxer {
     private static String a = "";
-    public static void createAlbaran(ArrayList<Article> articles, Client client) throws IOException{
-        String fileName = "C:\\Users\\migue\\Documents\\Media TIC\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + client.getName() + "_"+ System.currentTimeMillis() + ".txt";
+    public static void createAlbaran(ArrayList<Article> articles, Client client) throws IOException{    //Method to create a delivery note
+        String fileName = "C:\\Users\\migue\\Documents\\Media TIC\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + client.getName() + "_"+ System.currentTimeMillis() + ".txt";//select your path
         File file = new File(fileName);
         try (BufferedWriter line = new BufferedWriter(new FileWriter(file))) {
             line.write("Client's name:  " + client.getName() + "\n" +
@@ -13,49 +13,49 @@ public class Fitxer {
             "Order's date:   " + client.getDate() + "\n" +
             "\nQuantity       Units     Article\n"  +
             "============= ========== ===========");
-            for (int i = 0; i < articles.size(); i++) {
+            for (int i = 0; i < articles.size(); i++) {                        // Read all the articles of the client
                 a = articles.get(i).toString();
                 line.write(a);
             }
             line.close();
-            System.out.println("\nDocument created successfully");
+            System.out.println("\nDocument created successfully");          // The document is created
         } catch (FileNotFoundException e) {
-            System.out.println("\nFAIL, documento no created");
+            System.out.println("\nFAIL, documento no created");             // The document isn't created
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void createCSV(ArrayList<Article> articles, Client client) throws IOException{
-        String fileName = "C:\\Users\\migue\\Documents\\Media TIC\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + client.getName() + "_"+ System.currentTimeMillis() + ".csv";
+    public static void createCSV(ArrayList<Article> articles, Client client) throws IOException{  //Method to create a file in CSV
+        String fileName = "C:\\Users\\migue\\Documents\\Media TIC\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + client.getName() + "_"+ System.currentTimeMillis() + ".csv";//select your path
         File file = new File(fileName);
         try (BufferedWriter line = new BufferedWriter(new FileWriter(file))) {
-            line.write(client.getName() + ";" + client.getPhone() + ";" + client.getDate() + ";");
-            for (int i = 0; i < articles.size(); i++) {
+            line.write(client.getName() + ";" + client.getPhone() + ";" + client.getDate() + ";");      // Write the client's information
+            for (int i = 0; i < articles.size(); i++) {                       // Read all the articles of the client
                 if (i == articles.size()-1) {
                     a = a + Article.toCSV(articles.get(i));
                 } else {
                     a = a + Article.toCSV(articles.get(i)) + ";";
                 }
             }
-            line.write(a);
-            line.close();
-            System.out.println("\nDocument created successfully");
+            line.write(a);                                                    // Write the line
+            line.close();                                                     // Close the line
+            System.out.println("\nDocument created successfully");          // The document is created
         } catch (FileNotFoundException e) {
-            System.out.println("\nFAIL, documento no created");
+            System.out.println("\nFAIL, documento no created");             // The document isn't created
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void createBinari(ArrayList<Article> articles, Client client) throws IOException{
-        String fileName = "C:\\Users\\migue\\Documents\\Media TIC\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + client.getName() + "_"+ System.currentTimeMillis() + ".dat";
+    public static void createBinari(ArrayList<Article> articles, Client client) throws IOException{     //Method to create a file in binary
+        String fileName = "C:\\Users\\migue\\Documents\\Media TIC\\M06\\M06_UF1_A01\\" + "encarrecs_client_" + client.getName() + "_"+ System.currentTimeMillis() + ".dat";//select your path
         File file = new File(fileName);
         try (FileOutputStream fileStr1 = new FileOutputStream(file)) {
             DataOutputStream line = new DataOutputStream(fileStr1);
-            line.writeUTF(client.getName());
-            line.writeUTF(client.getPhone());
-            line.writeUTF(client.getDate());
+            line.writeUTF(client.getName());                                // Write the name of the client (String)
+            line.writeUTF(client.getPhone());                               // Write the name of the client (String)
+            line.writeUTF(client.getDate());                                // Write the line
             for (int i = 0; i < articles.size(); i++) {
                 Article art = articles.get(i);
                 line.writeFloat(art.getQuantity());
