@@ -241,9 +241,7 @@ Miguel;+34 628528182;2024-10-09;Coffee;2;kg
 ````
 
 3. Binary Format
-````
-a) 
-````
+
 ![alt text](image-1.png)
 
 # ❌ Error Handling
