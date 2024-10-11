@@ -136,7 +136,10 @@ a) public static String toCSV(Article article): This static method converts an A
 
 # Entrada
 
-
+1. private static BufferedReader reader: static instance of BufferedReader that is initialized to read from System.in.
+2. public static String readLine(): read a full line of text input from the console.
+3. IOException Handling: enclosed a try-catch block to handle potential IOException that can occur during input reading.
+4. IOException: throws a RuntimeException with the original exception as its cause, ensuring that any issues are propagated up the call stack.
 
 
 # 📖 Usage
