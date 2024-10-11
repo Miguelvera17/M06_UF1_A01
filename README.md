@@ -15,7 +15,7 @@ f) Binary: Compact binary format for efficiency.
 g) Data Retrieval: Read previously saved orders from files.
 ````
 
-# 📦 Project Structure
+# 📋 Project Structure
 
 ````
 ├── M06_UF1_A01
@@ -89,7 +89,7 @@ a) public static Client createClient(): This static method prompts the user to e
 - Displays a line indicating the end of input.
 - Creates a new Client object using the provided information and returns it
 ````
-# Article: 
+# 📦 Article: 
 
 1. Attributes
 ````
@@ -131,10 +131,57 @@ a) public String toString(): This method provides a custom string representation
 a) public static String toCSV(Article article): This static method converts an Article object to a CSV (Comma-Separated Values) format string, which is useful for exporting data. It concatenates the article's name, quantity, and unit, separated by semicolons.
 ````
 
-# Fitxer
+# 📃 Fitxer
 
+1. private static String a: variable used to accumulate article information.
+2. public static void createAlbaran(...):
+````
+a) Purpose: This method creates a delivery note (albarán) as a text file.
+b) Parameters: Takes an ArrayList<Article> representing the articles ordered by the client and a Client object.
+c) File Creation: The method constructs a filename that includes the client's name and a timestamp, creating the file in a specified directory.
+d) Content Writing: It writes the client’s name, phone number, order date, and a formatted list of articles to the file.
+e) Error Handling: It catches exceptions related to file creation and I/O issues, printing relevant error messages when applicable.
+````
+3. public static void createCSV(...):
+````
+a) Purpose: This method creates a CSV file containing client and article data.
+b) Parameters: Similar to the previous method, it takes an ArrayList<Article> and a Client.
+c) Content Writing: It first writes the client's information and then accumulates the articles into a single line formatted as CSV.
+d) Error Handling: As with createAlbaran, it includes exception handling for file creation and I/O issues.
+````
+4. public static void createBinari(...):
+````
+a) Purpose: This method creates a binary file to store client and article data in a format suitable for binary reading.
+b) Parameters: Accepts the same parameters as previous methods.
+c) Content Writing: It writes the client's name, phone, and date using UTF encoding and then iterates through the articles, writing their quantity, unit, and name.
+d) Error Handling: Implements exception handling for file-related issues, similar to the other methods.
+````
+5. public static void readBinari():
+````
+a) Purpose: This method reads a binary file containing client and article data.
+b) Input: Prompts the user to specify the path of the binary file to read.
+c) Content Reading: It reads the client's details and iterates through the articles, printing their information.
+d) Error Handling: Catches exceptions for file not found and end-of-file issues.
+````
+6. public static void readCSV():
+````
+a) Purpose: This method reads a CSV file and prints its contents in a formatted manner.
+b) Input: Similar to readBinari, it asks for the file path.
+c) Content Reading: It splits each line into values based on the delimiter and prints the client's and articles' details in a structured format.
+d) Error Handling: Checks for valid file extensions and handles exceptions for file reading.
+````
+7. public static void selectDocument(...):
+````
+a) Purpose: This method allows the user to choose which type of document to create (Albarán, binary, or CSV).
+b) Input Handling: It prompts for user input and calls the corresponding document creation method based on the selection.
+````
+8. public static void selectReadDocument():
+````
+a) Purpose: This method allows the user to choose which type of document to read (binary or CSV).
+b) Input Handling: Similar to selectDocument, it prompts the user for input and calls the appropriate read method.
+````
 
-# Entrada
+# ➡️ Entrada
 
 1. private static BufferedReader reader: static instance of BufferedReader that is initialized to read from System.in.
 2. public static String readLine(): read a full line of text input from the console.
