@@ -77,7 +77,7 @@ c) public String getDate() returns the order date.
 Setters:
 
 a) public void setName(String name) updates the client's name.
-b)public void setPhone(String phone) updates the client's phone number.
+b) public void setPhone(String phone) updates the client's phone number.
 c) public void setDate(String date) updates the order date.
 ````
 4. Method to Create a New Client
@@ -95,7 +95,7 @@ a) public static Client createClient(): This static method prompts the user to e
 ````
 a) private String name: Holds the name of the article.
 b) private Float quantity: Represents the quantity of the article. It is a Float to allow for decimal values (e.g., 1.5 kg).
-c)private String unit: Specifies the unit of measurement for the quantity (e.g., kg, liters).
+c) private String unit: Specifies the unit of measurement for the quantity (e.g., kg, liters).
 ````
 2. Constructors
 ````
@@ -242,7 +242,7 @@ Miguel;+34 628528182;2024-10-09;Coffee;2;kg
 
 3. Binary Format
 
-![alt text](image-1.png)
+![alt text](image.png)
 
 # ❌ Error Handling
 
