@@ -89,7 +89,7 @@ a) public static Client createClient(): This static method prompts the user to e
 - Displays a line indicating the end of input.
 - Creates a new Client object using the provided information and returns it
 ````
-# 📦 Article: 
+# 📦 Article.java
 
 1. Attributes
 ````
@@ -131,7 +131,7 @@ a) public String toString(): This method provides a custom string representation
 a) public static String toCSV(Article article): This static method converts an Article object to a CSV (Comma-Separated Values) format string, which is useful for exporting data. It concatenates the article's name, quantity, and unit, separated by semicolons.
 ````
 
-# 📃 Fitxer
+# 📃 Fitxer.java
 
 1. private static String a: variable used to accumulate article information.
 2. public static void createAlbaran(...):
@@ -172,16 +172,16 @@ d) Error Handling: Checks for valid file extensions and handles exceptions for f
 ````
 7. public static void selectDocument(...):
 ````
-a) Purpose: This method allows the user to choose which type of document to create (Albarán, binary, or CSV).
+a) Purpose: allows to choose which type of document to create (Albarán, binary, or CSV).
 b) Input Handling: It prompts for user input and calls the corresponding document creation method based on the selection.
 ````
 8. public static void selectReadDocument():
 ````
-a) Purpose: This method allows the user to choose which type of document to read (binary or CSV).
+a) Purpose: allows to choose which type of document to read (binary or CSV).
 b) Input Handling: Similar to selectDocument, it prompts the user for input and calls the appropriate read method.
 ````
 
-# ➡️ Entrada
+# ➡️ Entrada.java
 
 1. private static BufferedReader reader: static instance of BufferedReader that is initialized to read from System.in.
 2. public static String readLine(): read a full line of text input from the console.
