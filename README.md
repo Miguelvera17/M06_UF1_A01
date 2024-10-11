@@ -55,12 +55,14 @@ x) Salir del sistema.
 - Client: Responsible for creating and managing client instances. Provides static methods to initialize clients.
 
 - Article: Manages the creation of articles associated with a client.
-    a) createArticle(Client client) generates a list of articles for a given client.
+    ````
+    a) createArticle(Client client) generates a list of articles for a given client.`
+    ````
 - Fitxer: Handles file operations such as creating and reading documents.
-
+````
     a) selectDocument(ArrayList<Article> articles, Client client) allows the creation of a document based on the articles and client.
     b) selectReadDocument() loads a previously saved document for review.
-
+````
 - Entrada: Handles console input. It uses a BufferedReader to read user input from the console (System.in).
 
 
